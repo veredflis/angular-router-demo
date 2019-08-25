@@ -1,0 +1,17 @@
+<p>
+  item-one works!
+</p>
+<div class="clickable" (click)="navigateWithParams()">Go To Item 3</div>
+<br />
+<br />
+<div>Child component:</div>
+<div class="container">
+  <a
+    routerLink="./"
+    routerLinkActive="active"
+    [routerLinkActiveOptions]="{ exact: true }"
+    >Child One</a
+  >
+  <a [routerLink]="['child-two']" routerLinkActive="active">Child Two</a>
+</div>
+<router-outlet></router-outlet>

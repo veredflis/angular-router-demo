@@ -11,7 +11,8 @@ import {
   styleUrls: ["./item-one.component.scss"]
 })
 export class ItemOneComponent implements OnInit {
-  parameter: number = 17;
+  parameter1: number = 17;
+  parameter2: number = 18;
   constructor(private router: Router) {
     // router.events.subscribe(e => {
     //   console.log("router events: ", e);
@@ -26,6 +27,10 @@ export class ItemOneComponent implements OnInit {
   ngOnInit() {}
 
   navigateWithParams() {
-    this.router.navigate(["item-with-parameter", this.parameter]);
+    this.router.navigate([
+      "item-with-parameter",
+      this.parameter1,
+      this.parameter2
+    ]);
   }
 }

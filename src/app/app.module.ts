@@ -15,12 +15,15 @@ import { GuardCanActivateGuard } from "./guards/guard-can-activate.guard";
 import { CanDeactivateGuard } from "./guards/can-deactivate.guard";
 import { ResolverService } from "./services/resolver.service";
 import { CanLoadGuard } from "./guards/can-load.guard";
+import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
+import { NewGuard } from "./guards/new.guard";
 
 const routes: Routes = [
   {
     path: "item-one",
-    canActivate: [GuardCanActivateGuard],
+
     component: ItemOneComponent,
+    data: { animation: "one" },
     children: [
       {
         path: "",
@@ -34,9 +37,13 @@ const routes: Routes = [
       }
     ]
   },
-  { path: "item-two", component: ItemTwoComponent, canLoad: [CanLoadGuard] },
   {
-    path: "item-with-parameter/:id",
+    path: "item-two",
+    component: ItemTwoComponent,
+    data: { animation: "two" }
+  },
+  {
+    path: "item-with-parameter/:id1/:id2",
     component: ItemWithParameterComponent,
     data: { color: "red" },
     resolve: {
@@ -60,6 +67,7 @@ const routes: Routes = [
   ],
   imports: [
     BrowserModule,
+    BrowserAnimationsModule,
     RouterModule.forRoot(
       routes
       // { enableTracing: true } // <-- debugging purposes only

@@ -23,6 +23,7 @@ export class ItemWithParameterComponent implements OnInit {
       console.log("Routh Parammeter: ", +p.get("id"))
     );
     //get data object and/or resolved data:
+    //??????????when to use subscribe?
     this.route.data.subscribe((data: { listOfData: ListData }) => {
       console.log("resolvedData", data.listOfData);
     });

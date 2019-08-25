@@ -26,6 +26,7 @@ export class GuardCanActivateGuard implements CanActivate, CanActivateChild {
     route: ActivatedRouteSnapshot,
     state: RouterStateSnapshot
   ): boolean {
+    console.log("CanActivateChild Guard");
     return this.canActivate(route, state);
   }
 }

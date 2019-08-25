@@ -4,11 +4,13 @@
   <a routerLink="/item-one" routerLinkActive="active">Item One</a>
   <a routerLink="/item-two" routerLinkActive="active">Item Two</a>
   <a
-    [routerLink]="['item-with-parameter', id]"
+    [routerLink]="['item-with-parameter', id1, id2]"
     routerLinkActive="active"
     [routerLinkActiveOptions]="{ exact: false }"
     >Item Three</a
   >
 </div>
 
-<router-outlet></router-outlet>
+<div [@routeAnimations]="prepareRoute(outlet)">
+  <router-outlet #outlet="outlet"></router-outlet>
+</div>
